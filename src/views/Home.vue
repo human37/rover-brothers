@@ -58,9 +58,6 @@ export default {
 }
 
 .input-view {
-  margin: 10px;
-  margin-top: 30px;
-  margin-left: 30px;
   vertical-align: auto;
 }
 </style>
