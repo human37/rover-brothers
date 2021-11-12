@@ -1,6 +1,6 @@
 <template>
   <div class="prize-pool-container">
-    <div class="text-h1 text-center neon-style-text">
+    <div class="text-h2 text-center neon-style-text">
       ${{ formattedPrizeTotal }}
     </div>
   </div>
