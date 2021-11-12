@@ -1,5 +1,5 @@
 <template>
-  <div class="player-grid">
+  <div class="pa-3">
     <v-row>
       <v-col
         cols="auto"
