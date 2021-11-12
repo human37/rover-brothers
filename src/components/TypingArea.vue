@@ -41,9 +41,11 @@ p {
 
 .typing-input {
   backround-color: red;
-  height: 20px;
-  width: 500px;
+  height: 50px;
+  width: 75%;
   border: 1px solid #ccc;
+  border-radius: 9px;
+  margin-top: 10px;
 }
 .container {
   display: flex;
