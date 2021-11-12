@@ -5,7 +5,7 @@
       <v-chip
         :color="player.alive ? 'green' : 'red'"
         :style="playerMapDistance[index]"
-        >{{ player.name }}</v-chip
+        ><v-icon>mdi-account</v-icon>{{ player.name }}</v-chip
       >
     </span>
     <div class="start-line text-h5" style="bottom: 0">START</div>
@@ -32,9 +32,8 @@ export default {
 
 <style scoped>
 .player-map {
-  position: absolute;
   bottom: 20px;
-  padding-left: 20px;
+  text-align: center;
 }
 .start-line {
   border-top: 1px solid gray;
