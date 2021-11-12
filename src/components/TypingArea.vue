@@ -12,7 +12,7 @@
         </p>
       </div>
     </v-card>
-    <v-text-field class="typing-input"> </v-text-field>
+    <v-text-field class="typing-input" color="#ea4884"> </v-text-field>
   </div>
 </template>
 
