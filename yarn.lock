@@ -5729,14 +5729,11 @@
     "object-assign" "^4.0.1"
     "thenify-all" "^1.0.0"
 
-<<<<<<< HEAD
-=======
 "nan@^2.12.1":
   "integrity" "sha1-PzSkc/8Y4VwbVia2KQO1rW5mX+4="
   "resolved" "https://registry.nlark.com/nan/download/nan-2.15.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fnan%2Fdownload%2Fnan-2.15.0.tgz"
   "version" "2.15.0"
 
->>>>>>> 98623098ce36a35e2e9a1f74120dad659b247c7f
 "nanomatch@^1.2.9":
   "integrity" "sha1-uHqKpPwN6P5r6IiVs4mD/yZb0Rk="
   "resolved" "https://registry.npm.taobao.org/nanomatch/download/nanomatch-1.2.13.tgz"
