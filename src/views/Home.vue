@@ -1,6 +1,13 @@
 <template>
   <div class="home">
     <v-row>
+      <v-spacer />
+      <div class="prize-pool mt-6 text-center">
+        <prize-pool />
+      </div>
+      <v-spacer />
+    </v-row>
+    <v-row>
       <v-col class="input-view" align-center> <TypingArea /> </v-col>
       <v-col>
         <div class="map-grid-view">
@@ -9,10 +16,6 @@
           }}</v-btn>
           <player-map v-if="isMapView" />
           <player-grid v-else />
-        </div>
-        <div class="prize-pool mt-8">
-          <v-btn text outlined>PRIZE POOL</v-btn>
-          <prize-pool />
         </div>
       </v-col>
     </v-row>
@@ -51,18 +54,13 @@ export default {
   border: 1px solid #ccc;
   border-radius: 9px;
   margin: 10px;
-  margin-top: 30px;
-  vertical-align: auto;
+  margin-right: 20px;
 }
 
 .input-view {
   margin: 10px;
   margin-top: 30px;
+  margin-left: 30px;
   vertical-align: auto;
-}
-.prize-pool {
-  border: 1px solid #ccc;
-  border-radius: 9px;
-  margin: 10px;
 }
 </style>
