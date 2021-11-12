@@ -57,8 +57,7 @@ export default {
 
 .input-view {
   margin: 10px;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-top: 30px;
   vertical-align: auto;
 }
 .prize-pool {
