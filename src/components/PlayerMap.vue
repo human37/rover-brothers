@@ -1,62 +1,45 @@
 <template>
-  <div class="player-map"></div>
+  <div class="player-map">
+    <div class="finish-line text-h5" style="margin-bottom: 500px">END</div>
+    <span v-for="(player, index) in players" :key="index">
+      <v-chip
+        :color="player.alive ? 'green' : 'red'"
+        :style="playerMapDistance[index]"
+        >{{ player.name }}</v-chip
+      >
+    </span>
+    <div class="start-line text-h5" style="bottom: 0">START</div>
+  </div>
 </template>
 
 <script>
 export default {
   name: "PlayerMap",
 
-  data: () => ({
-    players: [
-      {
-        name: "Player 1",
-        score: 2,
-        alive: true,
-        id: 1,
-      },
-      {
-        name: "Player 2",
-        score: 5,
-        alive: false,
-        id: 2,
-      },
-      {
-        name: "Player 3",
-        score: 0,
-        alive: true,
-        id: 3,
-      },
-      {
-        name: "Player 4",
-        score: 6,
-        alive: true,
-        id: 4,
-      },
-      {
-        name: "Player 5",
-        score: 2,
-        alive: true,
-        id: 5,
-      },
-      {
-        name: "Player 6",
-        score: 9,
-        alive: false,
-        id: 6,
-      },
-      {
-        name: "Player 7",
-        score: 8,
-        alive: true,
-        id: 7,
-      },
-    ],
-  }),
+  data: () => ({}),
+  computed: {
+    players() {
+      return this.$store.getters.players;
+    },
+    playerMapDistance() {
+      return this.players.map((player) => {
+        return "bottom:" + player.score * 50 + "px";
+      });
+    },
+  },
 };
 </script>
 
 <style scoped>
 .player-map {
-  border: 1px solid #ccc;
+  position: absolute;
+  bottom: 20px;
+  padding-left: 20px;
+}
+.start-line {
+  border-top: 1px solid gray;
+}
+.finish-line {
+  border-bottom: 1px solid gray;
 }
 </style>

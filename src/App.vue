@@ -3,11 +3,11 @@
     <header>
       <v-app-bar>
         <v-spacer />
-        <v-btn to="/" class="ma-4" flat outlined>Home</v-btn>
+        <v-btn to="/" class="ma-4" text outlined>Home</v-btn>
         <v-spacer />
         <div class="text-h2">SQUID GAMES</div>
         <v-spacer />
-        <v-btn class="ma-4" to="/about" flat outlined> About </v-btn>
+        <v-btn class="ma-4" to="/about" text outlined> About </v-btn>
         <v-spacer />
       </v-app-bar>
     </header>
