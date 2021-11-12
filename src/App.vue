@@ -1,11 +1,20 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <header>
+      <v-app-bar>
+        <v-spacer />
+        <v-btn to="/" class="ma-4" flat outlined>Home</v-btn>
+        <v-spacer />
+        <div class="text-h2">SQUID GAMES</div>
+        <v-spacer />
+        <v-btn class="ma-4" to="/about" flat outlined> About </v-btn>
+        <v-spacer />
+      </v-app-bar>
+    </header>
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
 <style lang="scss">
@@ -15,18 +24,5 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>

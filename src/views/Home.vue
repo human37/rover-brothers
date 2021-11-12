@@ -1,18 +1,26 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <v-row>
+      <v-col id="player-map">
+        <player-map />
+      </v-col>
+      <v-col>
+        <player-grid />
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
+import PlayerGrid from "../components/PlayerGrid.vue";
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import PlayerMap from "../components/PlayerMap.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
-  }
-}
+    PlayerMap,
+    PlayerGrid,
+  },
+};
 </script>
