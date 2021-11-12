@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <v-row>
-      <v-col> </v-col>
+      <v-col class="input-view" align-center> <TypingArea /> </v-col>
       <v-col class="map-grid-view" align-center>
         <v-btn text outlined @click="isMapView = !isMapView">{{
           isMapViewText
@@ -16,6 +16,7 @@
 <script>
 import PlayerGrid from "../components/PlayerGrid.vue";
 import PlayerMap from "../components/PlayerMap.vue";
+import TypingArea from "../components/TypingArea.vue";
 
 export default {
   name: "Home",
@@ -27,6 +28,7 @@ export default {
   components: {
     PlayerMap,
     PlayerGrid,
+    TypingArea,
   },
   computed: {
     isMapViewText: function () {
@@ -43,6 +45,13 @@ export default {
   margin: 10px;
   margin-top: 30px;
   margin-right: 30px;
+  vertical-align: auto;
+}
+
+.input-view {
+  margin: 10px;
+  margin-top: 20px;
+  margin-left: 30px;
   vertical-align: auto;
 }
 </style>
