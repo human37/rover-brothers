@@ -38,10 +38,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.player-grid {
-  position: absolute;
-  bottom: 20px;
-}
-</style>
