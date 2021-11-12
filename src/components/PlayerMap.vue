@@ -9,8 +9,9 @@
     </div>
     <span v-for="(player, index) in players" :key="index">
       <v-chip
-        :color="player.alive ? 'green' : 'red'"
+        :disabled="!player.alive"
         :style="playerMapDistance[index]"
+        :color="player.alive ? '#ea4884' : ''"
         ><v-icon>mdi-account</v-icon>{{ player.name }}</v-chip
       >
     </span>
