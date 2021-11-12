@@ -23,6 +23,7 @@ export default {
 <style scoped>
 .prize-pool-container {
   padding: 20px;
+  margin-bottom: -30px;
 }
 .neon-style-text {
   color: white;

@@ -12,7 +12,7 @@
         </p>
       </div>
     </v-card>
-    <v-input class="typing-input"> </v-input>
+    <v-text-field class="typing-input"> </v-text-field>
   </div>
 </template>
 
@@ -39,10 +39,13 @@ p {
   border-radius: 9px;
 }
 
-.typing-input {
-  height: 20px;
-  width: 500px;
-  border: 1px solid #ccc;
+.typing-input >>> input {
+  border-style: none !important;
+  height: 50px;
+  width: 75%;
+  margin-top: 10px;
+  font-size: 32px;
+  text-align: center;
 }
 .container {
   display: flex;
