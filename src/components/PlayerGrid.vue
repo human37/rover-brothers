@@ -13,7 +13,8 @@
           class="full-height ma-1"
           flat
           outlined
-          :color="player.alive ? 'green' : 'red'"
+          :disabled="!player.alive"
+          :color="player.alive ? '#ea4884' : ''"
         >
           <v-card-title>
             <v-icon class="pr-3">mdi-account</v-icon>{{ player.name }}
