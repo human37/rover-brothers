@@ -2,12 +2,18 @@
   <div class="home">
     <v-row>
       <v-col> </v-col>
-      <v-col class="map-grid-view" align-center>
-        <v-btn text outlined @click="isMapView = !isMapView">{{
-          isMapViewText
-        }}</v-btn>
-        <player-map v-if="isMapView" />
-        <player-grid v-else />
+      <v-col>
+        <div class="map-grid-view">
+          <v-btn text outlined @click="isMapView = !isMapView">{{
+            isMapViewText
+          }}</v-btn>
+          <player-map v-if="isMapView" />
+          <player-grid v-else />
+        </div>
+        <div class="prize-pool mt-8">
+          <v-btn text outlined>PRIZE POOL</v-btn>
+          <prize-pool />
+        </div>
       </v-col>
     </v-row>
   </div>
@@ -16,6 +22,7 @@
 <script>
 import PlayerGrid from "../components/PlayerGrid.vue";
 import PlayerMap from "../components/PlayerMap.vue";
+import PrizePool from "../components/PrizePool.vue";
 
 export default {
   name: "Home",
@@ -27,10 +34,11 @@ export default {
   components: {
     PlayerMap,
     PlayerGrid,
+    PrizePool,
   },
   computed: {
     isMapViewText: function () {
-      return this.isMapView ? "Map View" : "Grid View";
+      return this.isMapView ? "Grid View" : "Map View";
     },
   },
 };
@@ -42,7 +50,11 @@ export default {
   border-radius: 9px;
   margin: 10px;
   margin-top: 30px;
-  margin-right: 30px;
   vertical-align: auto;
+}
+.prize-pool {
+  border: 1px solid #ccc;
+  border-radius: 9px;
+  margin: 10px;
 }
 </style>

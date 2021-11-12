@@ -1,19 +1,29 @@
 <template>
   <v-app>
     <header>
-      <v-app-bar>
+      <v-app-bar flat outlined rounded>
         <v-spacer />
-        <v-btn to="/" class="ma-4" text outlined>Home</v-btn>
+        <v-btn @click="$router.push('/')" class="ma-4" text outlined
+          >Home</v-btn
+        >
         <v-spacer />
         <div class="logo">
           <div class="shapes"><ion-icon name="ellipse-outline"></ion-icon></div>
-          <div class="shapes"><ion-icon name="triangle-outline"></ion-icon></div>
+          <div class="shapes">
+            <ion-icon name="triangle-outline"></ion-icon>
+          </div>
           <div class="shapes"><ion-icon name="square-outline"></ion-icon></div>
         </div>
         <div class="header-text">SQUID GAMES</div>
         <v-spacer />
-        <v-btn class="ma-4" to="/about" text outlined> About </v-btn>
+        <v-btn class="ma-4" @click="$router.push('/about')" text outlined>
+          About
+        </v-btn>
         <v-spacer />
+
+        <v-btn icon @click="$vuetify.theme.dark = !$vuetify.theme.dark">
+          <v-icon>mdi-weather-night</v-icon>
+        </v-btn>
       </v-app-bar>
     </header>
     <v-main>

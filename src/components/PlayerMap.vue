@@ -1,6 +1,12 @@
 <template>
   <div class="player-map">
-    <div class="finish-line text-h5" style="margin-bottom: 500px">END</div>
+    <div
+      class="finish-line text-h5"
+      style="margin-bottom: 500px"
+      :style="$vuetify.theme.dark ? 'color: white' : 'color: black'"
+    >
+      FINISH
+    </div>
     <span v-for="(player, index) in players" :key="index">
       <v-chip
         :color="player.alive ? 'green' : 'red'"
@@ -8,7 +14,13 @@
         ><v-icon>mdi-account</v-icon>{{ player.name }}</v-chip
       >
     </span>
-    <div class="start-line text-h5" style="bottom: 0">START</div>
+    <div
+      class="start-line text-h5"
+      :style="$vuetify.theme.dark ? 'color: white' : 'color: black'"
+      style="bottom: 0"
+    >
+      START
+    </div>
   </div>
 </template>
 
@@ -36,9 +48,13 @@ export default {
   text-align: center;
 }
 .start-line {
-  border-top: 1px solid gray;
+  border-top: 1px solid #ccc;
 }
 .finish-line {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #ccc;
+}
+.neon-style-text {
+  color: white;
+  filter: drop-shadow(0 0 3px #ea4884) drop-shadow(0 0 3px #ea4884);
 }
 </style>

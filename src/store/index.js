@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    prizeTotal: 57893676,
     players: [
       {
         name: "Player 1",
@@ -54,15 +55,24 @@ export default new Vuex.Store({
     UPDATE_PLAYERS(state, players) {
       state.players = players;
     },
+    UPDATE_PRIZE_TOTAL(state, prizeTotal) {
+      state.prizeTotal = prizeTotal;
+    },
   },
   actions: {
     updatePlayers({ commit }, players) {
       commit("UPDATE_PLAYERS", players);
     },
+    updatePrizeTotal({ commit }, prizeTotal) {
+      commit("UPDATE_PRIZE_TOTAL", prizeTotal);
+    },
   },
   getters: {
     players: (state) => {
       return state.players;
+    },
+    prizeTotal: (state) => {
+      return state.prizeTotal;
     },
   },
 });
