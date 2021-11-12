@@ -40,7 +40,6 @@ p {
 }
 
 .typing-input {
-  backround-color: red;
   height: 20px;
   width: 500px;
   border: 1px solid #ccc;
