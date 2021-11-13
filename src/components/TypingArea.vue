@@ -3,23 +3,45 @@
     <v-card id="card" class="full-height ma-1" flat outlined>
       <div class="goal-text">
         <p>
-          Love isn't always a ray of sunshine. That's what the older girls kept
-          telling her when she said she had found the perfect man. She had
-          thought this was simply bitter talk on their part since they had been
-          unable to find true love like hers. But now she had to face the fact
-          that they may have been right. Love may not always be a ray of
-          sunshine. That is unless they were referring to how the sun can burn.
+          {{ paragraphText }}
         </p>
       </div>
     </v-card>
-    <v-text-field class="typing-input" color="#ea4884"> </v-text-field>
+    <v-text-field
+      class="typing-input"
+      color="#ea4884"
+      :error="typedTextError"
+      v-model="typedText"
+    >
+    </v-text-field>
   </div>
 </template>
 
 <script>
 export default {
   name: "TypingArea",
-  computed: {},
+  data: function () {
+    return {
+      paragraphText:
+        "Love isn't always a ray of sunshine. That's what the older girls kept telling her when she said she had found the perfect man. She had thought this was simply bitter talk on their part since they had been unable to find true love like hers. But now she had to face the fact that they may have been right. Love may not always be a ray of sunshine. That is unless they were referring to how the sun can burn.",
+      typedText: "",
+    };
+  },
+  computed: {
+    typedTextError: function () {
+      let charCount = this.typedText.length;
+      if (charCount == 0) {
+        return false;
+      }
+      let messageToMatch = this.paragraphText.substring(0, charCount);
+      console.log(messageToMatch);
+      console.log(this.typedText);
+      if (this.typedText === messageToMatch) {
+        return false;
+      }
+      return true;
+    },
+  },
 };
 </script>
 
