@@ -33,6 +33,12 @@ export default {
   width: 90%;
   min-height: 100%;
   font-size: 50px;
+
+  border: 1px solid;
+  border-color: white;
+  box-shadow: 0px 0px 5px #ea4884,0px 0px 5px #ea4884;
+  color: white;
+  filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
 }
 .outer {
   display: flex;
