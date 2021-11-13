@@ -8,7 +8,7 @@
       <v-spacer />
     </v-row>
     <v-row>
-      <v-col class="input-view" align-center> <TypingArea /> </v-col>
+      <v-col class="input-view ma-0 pa-0"> <TypingArea /> </v-col>
       <v-col>
         <div class="map-grid-view">
           <v-btn text outlined @click="isMapView = !isMapView">{{
@@ -58,12 +58,12 @@ export default {
 .map-grid-view {
   border: 1px solid #ccc;
   border-radius: 9px;
-  margin: 10px;
   margin-right: 20px;
+  margin-top: 4px;
 }
 
 .input-view {
-  vertical-align: auto;
+  margin-left: 20px;
 }
 
 .container {
