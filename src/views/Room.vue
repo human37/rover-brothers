@@ -3,8 +3,8 @@
         <v-row>
             <v-col>
                 <div class="room-code-area">
-                    <div>ROOM CODE:</div>
-                    <div class="room-code">{{ $store.state.roomCode }}</div>
+                    <h2>Room Code:</h2>
+                    <h2 class="room-code">{{ $store.state.roomCode }}</h2>
                 </div>
             </v-col>
             <v-col>
@@ -101,7 +101,6 @@ export default {
 }
 .room-code {
     display: inline;
-    font-size: 24px;
     color: white;
 }
 .btn {
