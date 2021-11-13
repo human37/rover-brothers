@@ -1,78 +1,57 @@
 <template>
-  <div class="home">
-    <v-row>
-      <v-spacer />
-      <div class="prize-pool mt-6 mb-4 text-center">
-        <prize-pool />
-      </div>
-      <v-spacer />
-    </v-row>
-    <v-row>
-      <v-col class="input-view ma-0 pa-0 mr-3"> <TypingArea /> </v-col>
-      <v-col>
-        <div class="map-grid-view">
-          <v-btn text outlined @click="isMapView = !isMapView">{{
-            isMapViewText
-          }}</v-btn>
-          <player-map v-if="isMapView" />
-          <player-grid v-else />
-        </div>
-        <v-btn @click="startGame">
-          Start Game
-        </v-btn>
+  <div class="outer">
+    <div class="inner">
+      <v-col class="container">
+        <v-btn to="/room" class="btn" flat outlined>Create A Room</v-btn>
       </v-col>
-    </v-row>
+      <v-col class="container">
+        <v-btn class="btn" flat outlined>Join A Room</v-btn>
+      </v-col>
+    </div>
   </div>
 </template>
 
 <script>
-import PlayerGrid from "../components/PlayerGrid.vue";
-import PlayerMap from "../components/PlayerMap.vue";
-import TypingArea from "../components/TypingArea.vue";
-import PrizePool from "../components/PrizePool.vue";
-import {mapActions} from "vuex";
-
 export default {
   name: "Home",
   data: function () {
-    return {
-      isMapView: false,
-    };
+    return {};
   },
-  components: {
-    PlayerMap,
-    PlayerGrid,
-    TypingArea,
-    PrizePool,
-  },
-  computed: {
-    isMapViewText: function () {
-      return this.isMapView ? "Grid View" : "Map View";
-    },
-  },
-  methods: {
-    ...mapActions({
-      startGame: "startGame",
-    }),
-  },
+  components: {},
+  computed: {},
 };
 </script>
 
 <style scoped>
-.map-grid-view {
-  border: 1px solid #ccc;
-  border-radius: 9px;
-  margin-right: 20px;
-  margin-top: 4px;
-}
-
-.input-view {
-  margin-left: 20px;
-}
-
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+}
+.btn {
+  width: 90%;
+  min-height: 100%;
+  font-size: 50px;
+
+  border: 1px solid;
+  border-color: white;
+  box-shadow: 0px 0px 5px #ea4884,0px 0px 5px #ea4884;
+  color: white;
+  filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
+}
+.outer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+}
+.inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 100%;
 }
 </style>
