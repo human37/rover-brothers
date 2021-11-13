@@ -6,7 +6,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     prizeTotal: 57893676,
-    typeText: "",
+    typeText:
+      "However, sticking rigidly to this formula is not always advisable. Even though the length of a paragraph is supposed to be determined by the topic, writers have learned to divide long texts into bite-sized paragraphs to avoid presenting too much text in one chunk. This is a justifiable technique that ensures readers are not over-faced. If you employ this technique, look for a natural break in your long paragraph. In other words, do not create the divide between two closely linked sentences.",
     score: 0,
     players: [
       {
@@ -79,7 +80,7 @@ export default new Vuex.Store({
     },
     setScore({ commit }, data) {
       commit("UPDATE_SCORE", data);
-    }
+    },
   },
   getters: {
     players: (state) => {
@@ -90,6 +91,6 @@ export default new Vuex.Store({
     },
     typeText: (state) => {
       return state.typeText;
-    }
+    },
   },
 });

@@ -9,14 +9,20 @@
     >
       <div class="goal-text">
         <p>
-          {{ $store.state.typeText }}
+          <span
+            v-for="(word, index) in splitParagraphText"
+            :key="index"
+            :id="'word-' + index"
+          >
+            {{ word }}
+          </span>
         </p>
       </div>
       <v-text-field
         class="typing-input mb-4"
         color="#ea4884"
         placeholder="start typing here"
-        @input="checkIfDead"
+        @input="handleInput"
         :error="typedTextError"
         :error-messages="typedTextErrorMessage"
         v-model="typedText"
@@ -33,22 +39,49 @@ export default {
   data: function () {
     return {
       typedText: "",
+      previousTypedText: "",
       redLight: false,
+      currentIndex: 0,
     };
   },
   methods: {
     calculateScoreAndSend() {
       if (this.typedText.length > 0 && !this.typedTextError) {
         let score = (this.typedText.length / this.paragraphText.length) * 10;
-        console.log("score set", score);
         this.$store.dispatch("setScore", score);
       }
-      setTimeout(this.calculateScoreAndSend, 3000);
+      setTimeout(this.calculateScoreAndSend, 4000);
     },
     checkIfDead() {
       if (this.redLight) {
         alert("You are dead");
       }
+    },
+    handleInput(e) {
+      this.checkIfDead();
+      if (this.previousTypedText > this.typedText) {
+        if (
+          this.previousTypedText[this.previousTypedText.length - 1] === " " &&
+          !this.typedTextError
+        ) {
+          let wordId = "#word-" + this.currentIndex;
+          this.$el.querySelector(wordId).style.filter = "none";
+          this.currentIndex--;
+          wordId = "#word-" + this.currentIndex;
+          this.$el.querySelector(wordId).style.filter =
+            " drop-shadow(0 0 3px #ea4884) drop-shadow(0 0 3px #ea4884)";
+        }
+      } else {
+        if (e[e.length - 1] == " " && !this.typedTextError) {
+          let wordId = "#word-" + this.currentIndex;
+          this.$el.querySelector(wordId).style.filter = "none";
+          this.currentIndex++;
+          wordId = "#word-" + this.currentIndex;
+          this.$el.querySelector(wordId).style.filter =
+            " drop-shadow(0 0 3px #ea4884) drop-shadow(0 0 3px #ea4884)";
+        }
+      }
+      this.previousTypedText = this.typedText;
     },
   },
   computed: {
@@ -72,6 +105,9 @@ export default {
     paragraphText: function () {
       return this.$store.state.typeText;
     },
+    splitParagraphText: function () {
+      return this.paragraphText.split(" ");
+    },
   },
   created: function () {
     this.calculateScoreAndSend();
@@ -90,9 +126,14 @@ p {
   font-size: 32px;
 }
 
+#word-0 {
+  filter: drop-shadow(0 0 3px #ea4884) drop-shadow(0 0 3px #ea4884);
+}
+
 #card {
   border: 1px solid #ccc;
   border-radius: 9px;
+  background-color: transparent;
 }
 
 .typing-input >>> input {
