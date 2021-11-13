@@ -14,9 +14,9 @@
                         <v-icon class="pr-3 text-h3">mdi-account</v-icon
                         >{{ player.number }}
                     </v-card-title>
-                    <v-card-subtitle class="text-h2">
-                        %{{ (player.score * 10).toLocaleString() }}
-                    </v-card-subtitle>
+                    <v-card-text class="text-h2">
+                        %{{ Math.round(player.score * 10) }}
+                    </v-card-text>
                 </v-card>
             </span>
             <v-spacer />
