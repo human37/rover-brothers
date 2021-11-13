@@ -10,11 +10,18 @@
       <div class="goal-text">
         <p>
           <span
-            v-for="(word, index) in splitParagraphText"
-            :key="index"
-            :id="'word-' + index"
+            class="colored-text"
+            :class="
+              coloredText[coloredText.length - 1] == ' ' ||
+              nonColoredText[0] == ' '
+                ? ''
+                : 'mr-n2'
+            "
           >
-            {{ word }}
+            {{ coloredText }}
+          </span>
+          <span style="font-size: 32px">
+            {{ nonColoredText }}
           </span>
         </p>
       </div>
@@ -39,9 +46,7 @@ export default {
   data: function () {
     return {
       typedText: "",
-      previousTypedText: "",
       redLight: false,
-      currentIndex: 0,
     };
   },
   methods: {
@@ -50,38 +55,15 @@ export default {
         let score = (this.typedText.length / this.paragraphText.length) * 10;
         this.$store.dispatch("setScore", score);
       }
-      setTimeout(this.calculateScoreAndSend, 4000);
+      setTimeout(this.calculateScoreAndSend, 500);
     },
     checkIfDead() {
       if (this.redLight) {
         alert("You are dead");
       }
     },
-    handleInput(e) {
+    handleInput() {
       this.checkIfDead();
-      if (this.previousTypedText > this.typedText) {
-        if (
-          this.previousTypedText[this.previousTypedText.length - 1] === " " &&
-          !this.typedTextError
-        ) {
-          let wordId = "#word-" + this.currentIndex;
-          this.$el.querySelector(wordId).style.filter = "none";
-          this.currentIndex--;
-          wordId = "#word-" + this.currentIndex;
-          this.$el.querySelector(wordId).style.filter =
-            " drop-shadow(0 0 3px #ea4884) drop-shadow(0 0 3px #ea4884)";
-        }
-      } else {
-        if (e[e.length - 1] == " " && !this.typedTextError) {
-          let wordId = "#word-" + this.currentIndex;
-          this.$el.querySelector(wordId).style.filter = "none";
-          this.currentIndex++;
-          wordId = "#word-" + this.currentIndex;
-          this.$el.querySelector(wordId).style.filter =
-            " drop-shadow(0 0 3px #ea4884) drop-shadow(0 0 3px #ea4884)";
-        }
-      }
-      this.previousTypedText = this.typedText;
     },
   },
   computed: {
@@ -105,8 +87,19 @@ export default {
     paragraphText: function () {
       return this.$store.state.typeText;
     },
-    splitParagraphText: function () {
-      return this.paragraphText.split(" ");
+    coloredText: function () {
+      let charCount = this.typedText.length;
+      let messageToMatch = this.paragraphText.substring(0, charCount);
+      let coloredEnteredText = "";
+      for (let i = 0; i < charCount; i++) {
+        if (this.typedText[i] === messageToMatch[i]) {
+          coloredEnteredText += this.typedText[i];
+        }
+      }
+      return coloredEnteredText;
+    },
+    nonColoredText: function () {
+      return this.paragraphText.replace(this.coloredText, "");
     },
   },
   created: function () {
@@ -122,12 +115,9 @@ export default {
   min-height: 300px;
 }
 
-p {
-  font-size: 32px;
-}
-
-#word-0 {
+.colored-text {
   filter: drop-shadow(0 0 3px #ea4884) drop-shadow(0 0 3px #ea4884);
+  font-size: 32px;
 }
 
 #card {
