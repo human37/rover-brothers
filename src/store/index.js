@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     prizeTotal: 57893676,
     typeText: "",
+    score: 0,
     players: [
       {
         name: "Player 1",
@@ -62,6 +63,9 @@ export default new Vuex.Store({
     UPDATE_TYPE_TEXT(state, data) {
       state.typeText = data;
     },
+    UPDATE_SCORE(state, data) {
+      state.score = data;
+    },
   },
   actions: {
     updatePlayers({ commit }, players) {
@@ -70,9 +74,11 @@ export default new Vuex.Store({
     updatePrizeTotal({ commit }, prizeTotal) {
       commit("UPDATE_PRIZE_TOTAL", prizeTotal);
     },
-    populateStoreData({ commit }, data) {
-      console.log(data);
+    populateParagraph({ commit }, data) {
       commit("UPDATE_TYPE_TEXT", data);
+    },
+    setScore({ commit }, data) {
+      commit("UPDATE_SCORE", data);
     }
   },
   getters: {

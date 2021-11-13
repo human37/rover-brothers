@@ -1,9 +1,7 @@
 <template>
     <v-app-bar flat outlined rounded>
         <v-spacer />
-        <v-btn @click="$router.push('/')" class="ma-4" text outlined
-            >Home</v-btn
-        >
+        <v-btn to="/home" class="ma-4" text outlined>Home</v-btn>
         <v-spacer />
         <div class="logo">
             <div class="shapes neon-text">
@@ -18,9 +16,7 @@
         </div>
         <div class="header-text neon-text">SQUID GAMES</div>
         <v-spacer />
-        <v-btn class="ma-4" @click="$router.push('/about')" text outlined>
-            About
-        </v-btn>
+        <v-btn class="ma-4" to="/about" text outlined> About </v-btn>
         <v-spacer />
 
         <v-btn icon @click="$vuetify.theme.dark = !$vuetify.theme.dark">
