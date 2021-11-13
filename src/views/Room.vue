@@ -1,7 +1,10 @@
 <template>
     <div class="home">
         <v-row>
-            <v-spacer />
+            <v-spacer /> 
+            <div class="prize-pool mt-6 text-center">
+                Room Code: {{$store.state.roomCode}}
+            </div>
             <div class="prize-pool mt-6 mb-4 text-center">
                 <PrizePool />
             </div>
