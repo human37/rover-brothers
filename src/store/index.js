@@ -86,7 +86,7 @@ export default new Vuex.Store({
         setGameOver({ commit }, data) {
             commit('UPDATE_GAME_OVER', data);
             if (data) {
-                commit('UPDATE_PLAYER_ALIVE_STATUS', true);
+                commit('UPDATE_PLAYER_ALIVE_STATUS', false);
             }
         },
     },
