@@ -2,10 +2,10 @@
   <div class="outer">
     <div class="inner">
       <v-col class="container">
-        <v-btn class="btn" flat outlined>Create A Room</v-btn>
+        <v-btn to="/room" class="btn" flat outlined>Create A Room</v-btn>
       </v-col>
       <v-col class="container">
-        <v-btn to="/room" class="btn" flat outlined>Join A Room</v-btn>
+        <v-btn class="btn" flat outlined>Join A Room</v-btn>
       </v-col>
     </div>
   </div>
