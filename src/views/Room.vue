@@ -87,7 +87,6 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
 }
 
 .container {
@@ -100,7 +99,6 @@ export default {
     font-size: 24px;
     margin-top: 50px;
     margin-left: 20px;
-    filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
 }
 .room-code {
     display: inline;
