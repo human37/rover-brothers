@@ -55,7 +55,7 @@ export default {
         let score = (this.typedText.length / this.paragraphText.length) * 10;
         this.$store.dispatch("setScore", score);
       }
-      setTimeout(this.calculateScoreAndSend, 500);
+      setTimeout(this.calculateScoreAndSend, 4000);
     },
     checkIfDead() {
       if (this.redLight) {
@@ -69,11 +69,16 @@ export default {
   computed: {
     typedTextError: function () {
       let charCount = this.typedText.length;
+      console.log("this.typedText", this.typedText)
       if (charCount == 0) {
         return false;
       }
       let messageToMatch = this.paragraphText.substring(0, charCount);
       if (this.typedText === messageToMatch) {
+        //my code
+        //let charId = "#char-" + (charCount - 1);
+        //this.$el.querySelector(charId).style.filter =
+            " drop-shadow(0 0 3px green) drop-shadow(0 0 3px green)";
         return false;
       }
       return true;
@@ -118,6 +123,9 @@ export default {
 .colored-text {
   filter: drop-shadow(0 0 3px #ea4884) drop-shadow(0 0 3px #ea4884);
   font-size: 32px;
+}
+#char-0 {
+  filter: drop-shadow(0 0 3px green) drop-shadow(0 0 3px green);
 }
 
 #card {
