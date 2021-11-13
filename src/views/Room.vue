@@ -3,9 +3,8 @@
         <v-row>
             <v-spacer />
             <div class="prize-pool mt-6 mb-4 text-center">
-                <prize-pool />
+                <PrizePool />
             </div>
-            <div>{{ $store.state.roomCode }}</div>
             <v-spacer />
         </v-row>
         <v-row>
@@ -15,9 +14,10 @@
                     <v-btn text outlined @click="isMapView = !isMapView">{{
                         isMapViewText
                     }}</v-btn>
-                    <player-map v-if="isMapView" />
-                    <player-grid v-else />
+                    <PlayerMap v-if="isMapView" />
+                    <PlayerGrid v-else />
                 </div>
+                <v-btn @click="startGame"> Start Game </v-btn>
             </v-col>
         </v-row>
     </div>
@@ -28,26 +28,31 @@ import PlayerGrid from '../components/PlayerGrid.vue';
 import PlayerMap from '../components/PlayerMap.vue';
 import TypingArea from '../components/TypingArea.vue';
 import PrizePool from '../components/PrizePool.vue';
+import { mapActions } from 'vuex';
 
 export default {
     name: 'Room',
+    components: {
+        PrizePool,
+        PlayerMap,
+        PlayerGrid,
+        TypingArea,
+    },
     data: function () {
         return {
             isMapView: false,
         };
-    },
-    components: {
-        PlayerMap,
-        PlayerGrid,
-        TypingArea,
-        PrizePool,
     },
     computed: {
         isMapViewText: function () {
             return this.isMapView ? 'Grid View' : 'Map View';
         },
     },
-    mounted() {},
+    methods: {
+        ...mapActions({
+            startGame: 'startGame',
+        }),
+    },
 };
 </script>
 

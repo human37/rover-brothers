@@ -7,8 +7,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         prizeTotal: 57893676,
-        typeText:
-            "However, sticking rigidly to this formula is not always advisable. Even though the length of a paragraph is supposed to be determined by the topic, writers have learned to divide long texts into bite-sized paragraphs to avoid presenting too much text in one chunk. This is a justifiable technique that ensures readers are not over-faced. If you employ this technique, look for a natural break in your long paragraph. In other words, do not create the divide between two closely linked sentences.",
+        typeText: "",
         score: 0,
         players: [],
         roomCode: localStorage.getItem("@roomCode"),
@@ -40,6 +39,14 @@ export default new Vuex.Store({
         },
         SET_BAD_ROOM_CODE(state, isBad) {
             state.badCode = isBad;
+        },
+        UPDATE_PLAYER_SCORES(state, data) {
+            console.log("here", data.score);
+            console.log("id", data.id);
+            console.log("players", state.players);
+            let player = state.players.find((player) => player.id === data.id);
+            console.log("player", player);
+            player.score = data.score;
         }
     },
     actions: {
@@ -57,10 +64,14 @@ export default new Vuex.Store({
             commit("UPDATE_SCORE", data);
         },
         setPlayers({ commit }, data) {
+            console.log("this", data);
             commit("UPDATE_PLAYERS", data);
         },
         startGame({ commit }) {
-            Socket.createRoom();
+            Socket.startGame();
+        },
+        setProgressScores({ commit }, data) {
+            commit("UPDATE_PLAYER_SCORES", data);
         }
     },
     getters: {
@@ -73,5 +84,5 @@ export default new Vuex.Store({
         typeText: (state) => {
             return state.typeText;
         },
-    },
+    }
 });
