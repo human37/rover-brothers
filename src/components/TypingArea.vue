@@ -27,7 +27,11 @@
       </div>
       <v-text-field
         class="typing-input mb-4"
-        color="#ea4884"
+        color=white
+        style="
+          filter: drop-shadow(0 0 2px #ea4884)
+              drop-shadow(0 0 2px #ea4884);
+        "
         placeholder="start typing here"
         @input="handleInput"
         :error="typedTextError"
@@ -75,9 +79,6 @@ export default {
       }
       let messageToMatch = this.paragraphText.substring(0, charCount);
       if (this.typedText === messageToMatch) {
-        //my code
-        //let charId = "#char-" + (charCount - 1);
-        //this.$el.querySelector(charId).style.filter =
             " drop-shadow(0 0 3px green) drop-shadow(0 0 3px green)";
         return false;
       }
@@ -123,9 +124,6 @@ export default {
 .colored-text {
   filter: drop-shadow(0 0 3px #ea4884) drop-shadow(0 0 3px #ea4884);
   font-size: 32px;
-}
-#char-0 {
-  filter: drop-shadow(0 0 3px green) drop-shadow(0 0 3px green);
 }
 
 #card {
