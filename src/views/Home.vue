@@ -9,7 +9,8 @@
             <v-col class="container">
                 <div class="join-input">
                     <v-text-field
-                        class="typing-input mb-4"
+                        v-model="typingInput"
+                        class="typingInput mb-4"
                         color="#ea4884"
                         placeholder="Enter Room Code"
                         @keydown.enter="handleJoin"
@@ -22,7 +23,7 @@
                     flat
                     outlined
                     @click="handleJoin"
-                    style="pointer-events: none"
+                    :disabled="typingInput.length == 0"
                     >Join</v-btn
                 >
             </v-col>
@@ -34,7 +35,7 @@
 export default {
     name: 'Home',
     data: function () {
-        return {};
+        return { typingInput: '' };
     },
     components: {},
     computed: {},
@@ -85,7 +86,7 @@ export default {
     z-index: 1;
 }
 
-.typing-input >>> input {
+.typingInput >>> input {
     text-align: center;
     color: white;
     font-size: 32px;
