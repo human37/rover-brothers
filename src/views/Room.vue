@@ -6,11 +6,6 @@
                     Code: {{ $store.state.roomCode.toUpperCase() }}
                 </div>
             </v-col>
-            <v-col>
-                <div class="prize-pool mt-6 mb-4 text-center">
-                    <PrizePool />
-                </div>
-            </v-col>
         </v-row>
         <v-row>
             <v-col class="input-view ma-0 pa-0 mr-3">
@@ -45,13 +40,11 @@
 import PlayerGrid from '../components/PlayerGrid.vue';
 import PlayerMap from '../components/PlayerMap.vue';
 import TypingArea from '../components/TypingArea.vue';
-import PrizePool from '../components/PrizePool.vue';
 import { mapActions } from 'vuex';
 
 export default {
     name: 'Room',
     components: {
-        PrizePool,
         PlayerMap,
         PlayerGrid,
         TypingArea,
