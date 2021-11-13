@@ -26,13 +26,12 @@
             </v-col>
             <v-col>
                 <div class="map-grid-view">
-                    <v-btn text outlined @click="isMapView = !isMapView">{{
-                        isMapViewText
-                    }}</v-btn>
-                    <PlayerMap v-if="isMapView" />
-                    <PlayerGrid v-else />
+                    <PlayerMap />
                 </div>
             </v-col>
+        </v-row>
+        <v-row class="players-grid">
+            <PlayerGrid />
         </v-row>
     </div>
 </template>
@@ -112,5 +111,9 @@ export default {
     width: 25%;
     border: 1px solid;
     color: white;
+}
+.players-grid {
+    position: absolute;
+    bottom: 10px;
 }
 </style>
