@@ -1,20 +1,28 @@
 <template>
   <div class="container">
-    <v-card id="card" class="full-height ma-1" flat outlined>
+    <v-card
+      id="card"
+      class="full-height ma-1"
+      :style="redLight ? 'border-color: red' : ''"
+      flat
+      outlined
+    >
       <div class="goal-text">
         <p>
           {{ $store.state.typeText }}
         </p>
       </div>
       <v-text-field
-        class="typing-input"
+        class="typing-input pb-4"
         color="#ea4884"
         placeholder="start typing here"
+        @input="checkIfDead"
         :error="typedTextError"
         :error-messages="typedTextErrorMessage"
         v-model="typedText"
       >
       </v-text-field>
+      <!-- <v-btn @click="redLight = !redLight">LIGHT CHANGE</v-btn> -->
     </v-card>
   </div>
 </template>
@@ -27,6 +35,7 @@ export default {
       paragraphText:
         "Love isn't always a ray of sunshine. That's what the older girls kept telling her when she said she had found the perfect man. She had thought this was simply bitter talk on their part since they had been unable to find true love like hers. But now she had to face the fact that they may have been right. Love may not always be a ray of sunshine. That is unless they were referring to how the sun can burn.",
       typedText: "",
+      redLight: false,
     };
   },
   methods: {
@@ -37,6 +46,11 @@ export default {
         this.$store.dispatch("setScore", score);
       }
       setTimeout(this.calculateScoreAndSend, 3000);
+    },
+    checkIfDead() {
+      if (this.redLight) {
+        alert("You are dead");
+      }
     },
   },
   computed: {
@@ -94,5 +108,13 @@ p {
   align-items: center;
   margin-left: 20px;
   margin-right: 20px;
+}
+</style>
+
+<style>
+.v-messages__message {
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
 }
 </style>
