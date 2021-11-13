@@ -19,6 +19,11 @@
         </div>
       </v-col>
     </v-row>
+    <v-row>
+      <div class="container">
+        <v-btn text outlined>Submit</v-btn>
+      </div>
+    </v-row>
   </div>
 </template>
 
@@ -59,5 +64,11 @@ export default {
 
 .input-view {
   margin-left: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

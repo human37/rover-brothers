@@ -32,6 +32,39 @@
   </v-app>
 </template>
 
+<script>
+import { mapActions } from 'vuex'
+
+export default {
+  name: 'App',
+  data: () => ({
+    tab: null,
+  }),
+  components: {
+  },
+  computed: {
+  },
+  methods: {
+    ...mapActions({
+      populateStoreData: 'populateStoreData'
+    }),
+    connectToServer() { 
+        this.socket = new WebSocket("ws://localhost:3000");
+        this.socket.onmessage = (event) => {
+            this.receivedUpdates(event);
+        }
+    },
+    receivedUpdates(event) {
+      this.populateStoreData(JSON.parse(event.data));
+    }
+  },
+  created() {
+    this.connectToServer()
+  }
+};
+</script>
+
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
