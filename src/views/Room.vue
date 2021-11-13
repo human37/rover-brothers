@@ -4,7 +4,7 @@
             <v-col>
                 <div class="room-code-area">
                     ROOM CODE:
-                    <div class="room-code">XD1F4</div>
+                    <div class="room-code">{{ $store.state.roomCode }}</div>
                 </div>
             </v-col>
             <v-col>
