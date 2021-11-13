@@ -39,7 +39,7 @@ export default {
         return {
             enteringCode: false,
             joinCode: '',
-            typingInput: ''
+            typingInput: '',
         };
     },
     computed: {},
@@ -51,7 +51,7 @@ export default {
             this.enteringCode = true;
         },
         joinRoom() {
-            this.$socket.joinRoom(this.typingInput);
+            this.$socket.joinRoom(this.typingInput.toUpperCase());
         },
     },
     watch: {
