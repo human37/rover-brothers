@@ -1,41 +1,36 @@
 <template>
-  <div class="pa-3">
-    <v-row>
-      <v-col
-        cols="auto"
-        sm="1"
-        md="3"
-        v-for="(player, id) in players"
-        :key="id"
-      >
-        <v-spacer />
-        <v-card
-          class="full-height ma-1"
-          flat
-          outlined
-          :disabled="!player.alive"
-          :color="player.alive ? '#ea4884' : ''"
-        >
-          <v-card-title>
-            <v-icon class="pr-3">mdi-account</v-icon>{{ player.name }}
-          </v-card-title>
-          <v-card-subtitle class="text-h2">
-            {{ player.score }}
-          </v-card-subtitle>
-        </v-card>
-        <v-spacer />
-      </v-col>
-    </v-row>
-  </div>
+    <div class="pa-3">
+        <v-row>
+            <v-spacer />
+            <span v-for="(player, index) in players" :key="index">
+                <v-card
+                    class="full-height ma-1"
+                    flat
+                    outlined
+                    :disabled="!player.alive"
+                    :color="player.alive ? '#ea4884' : ''"
+                >
+                    <v-card-title class="text-h4">
+                        <v-icon class="pr-3 text-h3">mdi-account</v-icon
+                        >{{ player.number }}
+                    </v-card-title>
+                    <v-card-subtitle class="text-h2">
+                        %{{ (player.score * 10).toLocaleString() }}
+                    </v-card-subtitle>
+                </v-card>
+            </span>
+            <v-spacer />
+        </v-row>
+    </div>
 </template>
 
 <script>
 export default {
-  name: "PlayerGrid",
-  computed: {
-    players() {
-      return this.$store.getters.players;
+    name: 'PlayerGrid',
+    computed: {
+        players() {
+            return this.$store.getters.players;
+        },
     },
-  },
 };
 </script>
