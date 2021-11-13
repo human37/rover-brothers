@@ -3,7 +3,7 @@
         <v-row>
             <v-col>
                 <div class="room-code-area code-room text-h2">
-                    CODE: {{ $store.state.roomCode }}
+                    Code: {{ $store.state.roomCode.toUpperCase() }}
                 </div>
             </v-col>
             <v-col>
