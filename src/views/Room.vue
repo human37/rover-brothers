@@ -14,8 +14,17 @@
         </v-row>
         <v-row>
             <v-col class="input-view ma-0 pa-0 mr-3">
-                <TypingArea />
-                <v-btn class="btn" v-if="!ready" @click="readyUp" outlined
+                <div class="container" v-if="!$store.state.alive">
+                    <TypingArea />
+                </div>
+                <div class="container" v-else>
+                    <h1>YOU DIED</h1>
+                </div>
+                <v-btn
+                    class="btn"
+                    v-if="!ready || !$store.state.alive"
+                    @click="readyUp"
+                    outlined
                     >Ready Up</v-btn
                 >
                 <div v-else>READY!</div>
@@ -80,6 +89,7 @@ export default {
     margin-left: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -107,5 +117,14 @@ export default {
 .players-grid {
     position: absolute;
     bottom: 10px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    font-size: 50px;
 }
 </style>
