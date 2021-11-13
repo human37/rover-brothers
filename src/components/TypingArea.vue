@@ -3,8 +3,7 @@
     <v-card id="card" class="full-height ma-1" flat outlined>
       <div class="goal-text">
         <p>
-          <!-- {{ $store.state.typeText }} -->
-          {{ paragraphText }}
+          {{ $store.state.typeText }}
         </p>
       </div>
       <v-text-field
