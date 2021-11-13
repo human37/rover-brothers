@@ -59,7 +59,7 @@ export default {
         let score = (this.typedText.length / this.paragraphText.length) * 10;
         this.$store.dispatch("setScore", score);
       }
-      setTimeout(this.calculateScoreAndSend, 4000);
+      setTimeout(this.calculateScoreAndSend, 500);
     },
     checkIfDead() {
       if (this.redLight) {

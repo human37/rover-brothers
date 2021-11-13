@@ -2,7 +2,7 @@
     <div class="outer">
         <div class="inner">
             <v-col class="container">
-                <v-btn to="/room" class="btn" flat outlined
+                <v-btn @click="createRoom" class="btn" outlined
                     >Create A Room</v-btn
                 >
             </v-col>
@@ -22,7 +22,7 @@
                     class="btn"
                     flat
                     outlined
-                    @click="handleJoin"
+                    @click="joinRoom"
                     :disabled="typingInput.length == 0"
                     >Join</v-btn
                 >
@@ -34,12 +34,35 @@
 <script>
 export default {
     name: 'Home',
-    data: function () {
-        return { typingInput: '' };
-    },
     components: {},
+    data() {
+        return {
+            enteringCode: false,
+            joinCode: '',
+            typingInput: ''
+        };
+    },
     computed: {},
-    methods: {},
+    methods: {
+        createRoom() {
+            this.$socket.createRoom();
+        },
+        joinRoomTransition() {
+            this.enteringCode = true;
+        },
+        joinRoom() {
+            this.$socket.joinRoom(this.typingInput);
+        },
+    },
+    watch: {
+        '$store.state.roomCode': function () {
+            console.log('roomCode change');
+            this.$router.push('/room');
+        },
+        '$store.state.badCode': function (z) {
+            console.log('bad code:', z);
+        },
+    },
 };
 </script>
 
@@ -88,7 +111,6 @@ export default {
 
 .typingInput >>> input {
     text-align: center;
-    color: white;
     font-size: 32px;
 }
 </style>

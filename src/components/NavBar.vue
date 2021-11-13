@@ -54,12 +54,7 @@
         >
             About
         </v-btn>
-
         <v-spacer />
-
-        <v-btn icon @click="$vuetify.theme.dark = !$vuetify.theme.dark">
-            <v-icon>mdi-weather-night</v-icon>
-        </v-btn>
     </v-app-bar>
 </template>
 

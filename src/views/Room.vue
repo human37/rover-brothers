@@ -1,17 +1,27 @@
 <template>
     <div class="home">
         <v-row>
-            <v-spacer /> 
-            <div class="prize-pool mt-6 text-center">
-                Room Code: {{$store.state.roomCode}}
-            </div>
-            <div class="prize-pool mt-6 mb-4 text-center">
-                <PrizePool />
-            </div>
-            <v-spacer />
+            <v-col>
+                <div class="room-code-area">
+                    ROOM CODE:
+                    <div class="room-code">{{ $store.state.roomCode }}</div>
+                </div>
+            </v-col>
+            <v-col>
+                <div class="prize-pool mt-6 mb-4 text-center">
+                    <PrizePool />
+                </div>
+            </v-col>
+            <v-col></v-col>
         </v-row>
         <v-row>
-            <v-col class="input-view ma-0 pa-0 mr-3"> <TypingArea /> </v-col>
+            <v-col class="input-view ma-0 pa-0 mr-3">
+                <TypingArea />
+                <v-btn class="btn" v-if="!ready" @click="readyUp" outlined
+                    >Ready Up</v-btn
+                >
+                <div v-else>Ready!</div>
+            </v-col>
             <v-col>
                 <div class="map-grid-view">
                     <v-btn text outlined @click="isMapView = !isMapView">{{
@@ -20,12 +30,7 @@
                     <PlayerMap v-if="isMapView" />
                     <PlayerGrid v-else />
                 </div>
-                <v-btn @click="startGame"> Start Game </v-btn>
             </v-col>
-        </v-row>
-        <v-row>
-            <v-btn v-if="!ready" @click="readyUp">Ready Up</v-btn>
-            <div v-else>Ready!</div>
         </v-row>
     </div>
 </template>
@@ -57,9 +62,7 @@ export default {
         },
     },
     methods: {
-        ...mapActions({
-            startGame: 'startGame',
-        }),
+        ...mapActions({ startGame: 'startGame' }),
         readyUp() {
             this.$socket.sendReady();
             this.ready = true;
@@ -78,11 +81,30 @@ export default {
 
 .input-view {
     margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+}
+
+.room-code-area {
+    font-size: 24px;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+.room-code {
+    display: inline;
+    font-size: 24px;
+    color: white;
+    filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
+}
+.btn {
+    width: 25%;
 }
 </style>
