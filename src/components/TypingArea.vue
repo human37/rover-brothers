@@ -61,6 +61,7 @@ export default {
             if (this.$store.getters.redLight) {
                 alert('You are dead');
                 //set alive status to false
+                this.$store.dispatch('updateAliveStatus', false);
             }
         },
         handleInput() {

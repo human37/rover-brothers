@@ -22,7 +22,7 @@
                 </div>
                 <v-btn
                     class="btn"
-                    v-if="!ready || !$store.state.alive"
+                    v-if="$store.state.gameOver"
                     @click="readyUp"
                     outlined
                     >Ready Up</v-btn
@@ -58,7 +58,6 @@ export default {
     },
     data: function () {
         return {
-            ready: false,
             isMapView: false,
         };
     },
@@ -71,7 +70,7 @@ export default {
         ...mapActions({ startGame: 'startGame' }),
         readyUp() {
             this.$socket.sendReady();
-            this.ready = true;
+            this.$store.dispatch('setGameOver', false);
         },
     },
 };
