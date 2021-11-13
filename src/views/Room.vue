@@ -14,7 +14,7 @@
         </v-row>
         <v-row>
             <v-col class="input-view ma-0 pa-0 mr-3">
-                <div class="container" v-if="!$store.state.alive">
+                <div class="container" v-if="$store.state.alive">
                     <TypingArea />
                 </div>
                 <div class="container" v-else>
