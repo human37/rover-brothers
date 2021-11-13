@@ -9,7 +9,7 @@ export default new Vuex.Store({
         prizeTotal: 57893676,
         typeText: '',
         score: 0,
-        redLight: true,
+        redLight: false,
         players: [],
         roomCode: localStorage.getItem('@roomCode'),
         badCode: false,
