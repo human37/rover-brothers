@@ -60,8 +60,12 @@ export default new Vuex.Store({
             commit('UPDATE_TYPE_TEXT', data);
         },
         setScore({ commit }, data) {
-            Socket.sendPlayerProgress(data);
-            commit('UPDATE_SCORE', data);
+            if (this.state.gameOver) {
+                commit('UPDATE_SCORE', data);
+            } else {
+                Socket.sendPlayerProgress(data);
+                commit('UPDATE_SCORE', data);
+            }
         },
         setPlayers({ commit }, data) {
             commit('UPDATE_PLAYERS', data);
@@ -81,6 +85,9 @@ export default new Vuex.Store({
         },
         setGameOver({ commit }, data) {
             commit('UPDATE_GAME_OVER', data);
+            if (data) {
+                commit('UPDATE_PLAYER_ALIVE_STATUS', true);
+            }
         },
     },
     getters: {

@@ -3,8 +3,6 @@ import store from '../store';
 function SocketHandler(event) {
     let msg = JSON.parse(event.data);
 
-    console.log(msg);
-
     if (msg.type === 'SEND_UUID') {
         localStorage.setItem('@uuid', msg.data);
     } else if (msg.type === 'ROOM_JOINED') {
