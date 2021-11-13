@@ -41,10 +41,11 @@ export default {
     tab: null,
   }),
   components: {},
-  computed: {},
+  created: function () {
+    this.$vuetify.theme.dark = true;
+  },
   methods: {
-    ...mapActions({
-    }),
+    ...mapActions({}),
   },
 };
 </script>
