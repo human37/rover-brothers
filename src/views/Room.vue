@@ -17,7 +17,9 @@
         <v-row>
             <v-col class="input-view ma-0 pa-0 mr-3">
                 <TypingArea />
-                <v-btn class="btn" v-if="!ready" @click="readyUp" outlined
+                <v-btn class="btn"
+                v-if="!ready" 
+                @click="readyUp" outlined
                     >Ready Up</v-btn
                 >
                 <div v-else>Ready!</div>
@@ -77,6 +79,7 @@ export default {
     border-radius: 9px;
     margin-right: 20px;
     margin-top: 4px;
+    filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
 }
 
 .input-view {
@@ -85,6 +88,7 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
 }
 
 .container {
@@ -97,14 +101,16 @@ export default {
     font-size: 24px;
     margin-top: 50px;
     margin-left: 20px;
+    filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
 }
 .room-code {
     display: inline;
     font-size: 24px;
     color: white;
-    filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
 }
 .btn {
     width: 25%;
+    border: 1px solid;
+    color: white;
 }
 </style>

@@ -28,10 +28,6 @@
       <v-text-field
         class="typing-input mb-4"
         color=white
-        style="
-          filter: drop-shadow(0 0 2px #ea4884)
-              drop-shadow(0 0 2px #ea4884);
-        "
         placeholder="start typing here"
         @input="handleInput"
         :error="typedTextError"
