@@ -18,30 +18,12 @@ export default {
     data: () => ({
         tab: null,
     }),
-    components: { NavBar },
-    computed: {},
-    methods: {
-        ...mapActions({
-            populateStoreData: 'populateStoreData',
-        }),
-        connectToServer() {
-            console.log('connecting to socket');
-            this.socket = new WebSocket(
-                `ws://${window.location.hostname}:3000`
-            );
-            this.socket.onmessage = (event) => {
-                this.receivedUpdates(event);
-            };
-        },
-        receivedUpdates(event) {
-            this.populateStoreData(JSON.parse(event.data));
-        },
-        getRoomCode() {
-            this.socket.send(JSON.stringify('GET_ROOM_CODE'));
-        },
+    components: {},
+    created: function () {
+        this.$vuetify.theme.dark = true;
     },
-    created() {
-        this.connectToServer();
+    methods: {
+        ...mapActions({}),
     },
 };
 </script>
