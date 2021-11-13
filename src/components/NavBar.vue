@@ -7,7 +7,7 @@
             style="
                 filter: drop-shadow(0 0 2px #ea4884)
                     drop-shadow(0 0 2px #ea4884);
-                border: .5px solid;
+                border: 0.5px solid;
             "
             text
             outlined
@@ -46,7 +46,7 @@
             style="
                 filter: drop-shadow(0 0 2px #ea4884)
                     drop-shadow(0 0 2px #ea4884);
-                border: .5px solid;
+                border: 0.5px solid;
             "
             to="/about"
             text

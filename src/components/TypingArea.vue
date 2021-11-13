@@ -58,8 +58,9 @@ export default {
             setTimeout(this.calculateScoreAndSend, 500);
         },
         checkIfDead() {
-            if (this.store.getters.redLight) {
+            if (this.$store.getters.redLight) {
                 alert('You are dead');
+                //set alive status to false
             }
         },
         handleInput() {

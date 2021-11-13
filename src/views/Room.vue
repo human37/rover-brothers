@@ -2,9 +2,8 @@
     <div class="home">
         <v-row>
             <v-col>
-                <div class="room-code-area">
-                    <h2>Room Code:</h2>
-                    <h2 class="room-code">{{ $store.state.roomCode }}</h2>
+                <div class="room-code-area code-room text-h2">
+                    CODE: {{ $store.state.roomCode }}
                 </div>
             </v-col>
             <v-col>
@@ -19,7 +18,7 @@
                 <v-btn class="btn" v-if="!ready" @click="readyUp" outlined
                     >Ready Up</v-btn
                 >
-                <div v-else>Ready!</div>
+                <div v-else>READY!</div>
             </v-col>
             <v-col>
                 <div class="map-grid-view">
@@ -75,22 +74,18 @@ export default {
     border-radius: 9px;
     margin-right: 20px;
     margin-top: 4px;
-    filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
 }
 
 .input-view {
     margin-left: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
 }
 
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.code-room {
+    filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
 }
 
 .room-code-area {
@@ -103,6 +98,7 @@ export default {
 .room-code {
     display: inline;
     color: white;
+    padding-left: 5px;
 }
 .btn {
     width: 25%;
