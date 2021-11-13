@@ -53,7 +53,7 @@
     color: white;
     filter: drop-shadow(0 0 2px #ea4884);
     text-align: center;
-    padding-bottom: 30px;
+    padding-bottom: 35px;
 }
 
 #about-header {
