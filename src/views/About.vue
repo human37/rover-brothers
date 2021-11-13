@@ -45,7 +45,7 @@
     width: 520px;
     height: 400px;
     margin-left: calc(50% - 250px);
-    margin-top: 20px;
+    margin-top: 90px;
     box-shadow: 0px 0px 5px #ea4884, 0px 0px 5px #ea4884;
 }
 .about-list dt {
