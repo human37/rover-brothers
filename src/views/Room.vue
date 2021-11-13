@@ -90,7 +90,6 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
 }
 
 .code-room {
