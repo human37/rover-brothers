@@ -14,15 +14,17 @@ export default new Vuex.Store({
   },
   mutations: {
     UPDATE_PLAYERS(state, players) {
-      players.forEach((player) => {
+      console.log("UPDATE_PLAYERS", players);
+      players.forEach((playerId) => {
         let person = {
           name: "bob", 
           score: 0,
           alive: true,
-          id: player.id,
+          id: playerId,
         }
         state.players.push(person);
       })
+      console.log("the coool state", state.players);
     },
     UPDATE_PRIZE_TOTAL(state, prizeTotal) {
       state.prizeTotal = prizeTotal;
@@ -32,6 +34,14 @@ export default new Vuex.Store({
     },
     UPDATE_SCORE(state, data) {
       state.score = data;
+    },
+    UPDATE_PLAYER_SCORES(state, data) {
+      console.log("here", data.score);
+      console.log("id", data.id);
+      console.log("players", state.players);
+      let player = state.players.find((player) => player.id === data.id);
+      console.log("player", player);
+      player.score = data.score;
     }
   },
   actions: {
@@ -49,11 +59,15 @@ export default new Vuex.Store({
       commit("UPDATE_SCORE", data);
     },
     setPlayers({ commit }, data) {
+      console.log("this", data);
       commit("UPDATE_PLAYERS", data);
     },
     startGame({ commit }) {
       socketSend.startGame();
-    }
+    },
+    setProgressScores({ commit }, data) {
+      commit("UPDATE_PLAYER_SCORES", data);
+    } 
   },
   getters: {
     players: (state) => {

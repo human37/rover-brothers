@@ -8,7 +8,7 @@ const socketSend = {
     sendPlayerProgress: function(progress) {
         send({
             attribute: 'playerProgress',
-            progress: progress
+            score: progress
         });
     },
     startGame: function() {
