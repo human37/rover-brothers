@@ -14,7 +14,7 @@
         </p>
       </div>
       <v-text-field
-        class="typing-input pb-4"
+        class="typing-input mb-4"
         color="#ea4884"
         placeholder="start typing here"
         @input="checkIfDead"
@@ -33,8 +33,6 @@ export default {
   name: "TypingArea",
   data: function () {
     return {
-      paragraphText:
-        "Love isn't always a ray of sunshine. That's what the older girls kept telling her when she said she had found the perfect man. She had thought this was simply bitter talk on their part since they had been unable to find true love like hers. But now she had to face the fact that they may have been right. Love may not always be a ray of sunshine. That is unless they were referring to how the sun can burn.",
       typedText: "",
       redLight: false,
     };
@@ -71,6 +69,9 @@ export default {
         return "  What you have typed is incorrect, go back and fix please.";
       }
       return "";
+    },
+    paragraphText: function () {
+      return this.$store.state.typeText;
     },
   },
   created: function () {
@@ -114,8 +115,7 @@ p {
 
 <style>
 .v-messages__message {
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 16px;
   text-align: center;
 }
 </style>
