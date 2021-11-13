@@ -14,8 +14,12 @@
         </v-row>
         <v-row>
             <v-col class="input-view ma-0 pa-0 mr-3">
-                <TypingArea/>
-                <v-btn class="btn" v-if="!ready" @click="readyUp" outlined
+                <TypingArea />
+                <v-btn
+                    class="btn"
+                    v-if="$store.state.gameOver"
+                    @click="readyUp"
+                    outlined
                     >Ready Up</v-btn
                 >
                 <div v-else>READY!</div>
@@ -49,7 +53,6 @@ export default {
     },
     data: function () {
         return {
-            ready: false,
             isMapView: false,
         };
     },
@@ -62,7 +65,7 @@ export default {
         ...mapActions({ startGame: 'startGame' }),
         readyUp() {
             this.$socket.sendReady();
-            this.ready = true;
+            this.$store.dispatch('setGameOver', false);
         },
     },
 };

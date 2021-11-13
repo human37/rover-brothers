@@ -9,10 +9,12 @@ export default new Vuex.Store({
         prizeTotal: 57893676,
         typeText: '',
         score: 0,
+        alive: true,
         redLight: false,
         players: [],
         roomCode: localStorage.getItem('@roomCode'),
         badCode: false,
+        gameOver: true,
     },
     mutations: {
         UPDATE_PLAYERS(state, players) {
@@ -33,11 +35,18 @@ export default new Vuex.Store({
         SET_BAD_ROOM_CODE(state, isBad) {
             state.badCode = isBad;
         },
+        UPDATE_PLAYER_ALIVE_STATUS(state, data) {
+            state.alive = data;
+        },
         UPDATE_PLAYER_SCORES(state, data) {
             state.players = data;
         },
         UPDATE_RED_LIGHT(state, data) {
             state.redLight = data;
+            console.log('updated red light');
+        },
+        UPDATE_GAME_OVER(state, data) {
+            state.gameOver = data;
         },
     },
     actions: {
@@ -65,6 +74,13 @@ export default new Vuex.Store({
         },
         setRedLight({ commit }, data) {
             commit('UPDATE_RED_LIGHT', data);
+        },
+        updateAliveStatus({ commit }, data) {
+            commit('UPDATE_PLAYER_ALIVE_STATUS', data);
+            Socket.sendPlayerAliveStatus(data);
+        },
+        setGameOver({ commit }, data) {
+            commit('UPDATE_GAME_OVER', data);
         },
     },
     getters: {
