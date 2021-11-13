@@ -71,8 +71,12 @@ export default new Vuex.Store({
       commit("UPDATE_PRIZE_TOTAL", prizeTotal);
     },
     populateStoreData({ commit }, data) {
-      console.log(data);
-      commit("UPDATE_TYPE_TEXT", data);
+      if (data.attribute === 'paragraph') {
+        console.log("stuff")
+        commit("UPDATE_TYPE_TEXT", data.data);
+      } else if (data.attribute === 'player-info') {
+        commit("UPDATE_PLAYERS", data.data);
+      }
     }
   },
   getters: {
