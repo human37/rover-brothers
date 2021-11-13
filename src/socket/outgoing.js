@@ -7,8 +7,8 @@ export function SendData(data) {
 const Socket = {
     sendPlayerProgress: function (progress) {
         SendData({
-            type: 'playerProgress',
-            progress: progress
+            type: 'UPDATE_PROGRESS',
+            data: progress
         });
     },
     createRoom: () => {
