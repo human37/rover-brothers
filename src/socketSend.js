@@ -1,15 +1,19 @@
-import store from './store'
 import socket from './socket';
 
 function send(data) {
-    socket.send(json.stringify(data));
+    socket.send(JSON.stringify(data));
 }
 
 const socketSend = {
     sendPlayerProgress: function(progress) {
         send({
-            type: 'playerProgress',
+            attribute: 'playerProgress',
             progress: progress
+        });
+    },
+    startGame: function() {
+        send({
+            attribute: 'startGame',
         });
     }
 }

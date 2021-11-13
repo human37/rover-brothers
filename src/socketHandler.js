@@ -10,6 +10,15 @@ function socketHandler(event) {
         store.dispatch("populateParagraph", data.data)
     }
 
+    if (data.attribute == "playerProgress") {
+        store.dispatch("setProgressScores", data.data)
+    }
+
+    if (data.attribute == "startGame") {
+        console.log(data)
+        store.dispatch("setPlayers", data.group)
+    }
+
 
 }
 
