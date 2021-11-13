@@ -10,6 +10,17 @@ const Socket = {
             type: 'playerProgress',
             progress: progress
         });
+    },
+    createRoom: () => {
+        SendData({
+            type: "CREATE_ROOM",
+        });
+    },
+    joinRoom: (code) => {
+        SendData({
+            type: "JOIN_ROOM",
+            data: code
+        });
     }
 };
 

@@ -5,7 +5,7 @@ import vuetify from "./plugins/vuetify";
 import store from "./store";
 import router from "./router";
 import socket from "./socket";
-import { SendData } from "./socket/outgoing";
+import SocketAPI, { SendData } from "./socket/outgoing";
 import SocketMessageHandler from "./socket/incoming";
 
 Vue.config.productionTip = false;
@@ -25,9 +25,10 @@ socket.onopen = (event) => {
         });
     }
 };
+
 socket.onmessage = SocketMessageHandler;
 
-Vue.prototype.$socket = socket;
+Vue.prototype.$socket = SocketAPI;
 
 new Vue({
     vuetify,

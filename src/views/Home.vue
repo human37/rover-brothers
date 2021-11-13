@@ -2,10 +2,24 @@
     <div class="outer">
         <div class="inner">
             <v-col class="container">
-                <v-btn to="/room" class="btn" outlined>Create A Room</v-btn>
+                <v-btn @click="createRoom" class="btn" outlined
+                    >Create A Room</v-btn
+                >
             </v-col>
             <v-col class="container">
-                <v-btn class="btn" outlined>Join A Room</v-btn>
+                <v-btn
+                    v-if="!enteringCode"
+                    @click="joinRoomTransition"
+                    class="btn"
+                    outlined
+                    >Join A Room</v-btn
+                >
+                <v-text-field
+                    v-else
+                    v-model="joinCode"
+                    @blur="enteringCode = false"
+                    @keydown.enter="joinRoom"
+                ></v-text-field>
             </v-col>
         </div>
     </div>
@@ -14,11 +28,34 @@
 <script>
 export default {
     name: 'Home',
-    data: function () {
-        return {};
-    },
     components: {},
+    data() {
+        return {
+            enteringCode: false,
+            joinCode: '',
+        };
+    },
     computed: {},
+    methods: {
+        createRoom() {
+            this.$socket.createRoom();
+        },
+        joinRoomTransition() {
+            this.enteringCode = true;
+        },
+        joinRoom() {
+            this.$socket.joinRoom(this.joinCode);
+        },
+    },
+    watch: {
+        '$store.state.roomCode': function () {
+            console.log('roomCode change');
+            this.$router.push('/room');
+        },
+        '$store.state.badCode': function (z) {
+            console.log('bad code:', z);
+        },
+    },
 };
 </script>
 
@@ -37,7 +74,6 @@ export default {
     border: 1px solid;
     border-color: white;
     box-shadow: 0px 0px 5px #ea4884, 0px 0px 5px #ea4884;
-    color: white;
     filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
 }
 .outer {
