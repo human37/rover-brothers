@@ -14,7 +14,7 @@
                 <v-icon size="50">mdi-triangle-outline</v-icon>
             </div>
         </div>
-        <div class="header-text neon-text">SQUID GAMES</div>
+        <div class="header-text neon-text">SQUID RACER</div>
         <v-spacer />
         <v-btn class="ma-4" to="/about" text outlined> About </v-btn>
         <v-spacer />

@@ -15,10 +15,12 @@ import NavBar from './components/NavBar.vue';
 
 export default {
     name: 'App',
+    components: {
+        NavBar,
+    },
     data: () => ({
         tab: null,
     }),
-    components: {},
     created: function () {
         this.$vuetify.theme.dark = true;
     },
