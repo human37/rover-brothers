@@ -58,6 +58,7 @@ export default new Vuex.Store({
         },
         populateParagraph({ commit }, data) {
             commit('UPDATE_TYPE_TEXT', data);
+            commit('UPDATE_PLAYER_ALIVE_STATUS', true);
         },
         setScore({ commit }, data) {
             if (this.state.gameOver) {
