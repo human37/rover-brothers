@@ -25,7 +25,6 @@ export default {
     methods: {
         ...mapActions({}),
     },
-    // OOGA BOOGA
 };
 </script>
 
