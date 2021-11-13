@@ -50,7 +50,7 @@ export default {
         let score = (this.typedText.length / this.paragraphText.length) * 10;
         this.$store.dispatch("setScore", score);
       }
-      setTimeout(this.calculateScoreAndSend, 500);
+      setTimeout(this.calculateScoreAndSend, 4000);
     },
     checkIfDead() {
       if (this.redLight) {
@@ -74,11 +74,9 @@ export default {
       } else {
         if (e[e.length - 1] == " " && !this.typedTextError) {
           let wordId = "#word-" + this.currentIndex;
-          //this.$el.querySelector(wordId).style.filter = "none";
+          //this.$el.querySelector(woreId).style.filter = "none";
           this.currentIndex++;
           wordId = "#word-" + this.currentIndex;
-
-
 
           this.$el.querySelector(wordId).style.filter =
             " drop-shadow(0 0 3px #ea4884) drop-shadow(0 0 3px #ea4884)";
