@@ -1,6 +1,16 @@
 <template>
     <div class="about">
         <div class="about-form">
+            <div class="how-to-play">
+                <h1>How To Play</h1>
+                <p>
+                    Squid Racer is a multiplayer typracing game inspired by the
+                    popular TV series "Squid Games". To start a game create a
+                    room or join one of your friends using the code provided in
+                    the room lobby. Be the first to finish the race to win, but
+                    don't get caught typing during a red-light or you lose!
+                </p>
+            </div>
             <div id="about-header">Creators</div>
             <dl class="about-list">
                 <dt>
@@ -42,11 +52,9 @@
 .about-form {
     border: 1px solid;
     border-color: white;
-    width: 520px;
-    height: 400px;
-    margin-left: calc(50% - 250px);
-    margin-top: 90px;
     box-shadow: 0px 0px 5px #ea4884, 0px 0px 5px #ea4884;
+    margin-top: 25px;
+    padding: 30px;
 }
 .about-list dt {
     font-size: 20px;
@@ -63,5 +71,28 @@
     filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
     padding-top: 20px;
     padding-bottom: 40px;
+}
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.how-to-play {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+}
+p {
+    text-align: center;
+    font-size: 24px;
+}
+h1 {
+    color: white;
+    filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
+    margin-bottom: 10px;
 }
 </style>

@@ -3,7 +3,7 @@
         <v-row>
             <v-col>
                 <div class="room-code-area code-room text-h2">
-                    CODE: {{ $store.state.roomCode }}
+                    Code: {{ $store.state.roomCode.toUpperCase() }}
                 </div>
             </v-col>
             <v-col>
@@ -14,7 +14,12 @@
         </v-row>
         <v-row>
             <v-col class="input-view ma-0 pa-0 mr-3">
-                <TypingArea />
+                <div class="container" v-if="$store.state.alive">
+                    <TypingArea />
+                </div>
+                <div class="container" v-else>
+                    <h1>YOU DIED</h1>
+                </div>
                 <v-btn
                     class="btn"
                     v-if="$store.state.gameOver"
@@ -83,7 +88,9 @@ export default {
     margin-left: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
 }
 
 .code-room {
@@ -110,5 +117,15 @@ export default {
 .players-grid {
     position: absolute;
     bottom: 10px;
+    filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    font-size: 50px;
 }
 </style>
