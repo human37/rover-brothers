@@ -51,7 +51,7 @@ export default {
             this.enteringCode = true;
         },
         joinRoom() {
-            this.$socket.joinRoom(this.typingInput.toUpperCase());
+            this.$socket.joinRoom(this.typingInput.toLowerCase());
         },
     },
     watch: {
