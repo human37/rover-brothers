@@ -14,6 +14,7 @@ export default new Vuex.Store({
         players: [],
         roomCode: localStorage.getItem('@roomCode'),
         badCode: false,
+        gameOver: true,
     },
     mutations: {
         UPDATE_PLAYERS(state, players) {
@@ -42,6 +43,9 @@ export default new Vuex.Store({
         },
         UPDATE_RED_LIGHT(state, data) {
             state.redLight = data;
+        },
+        UPDATE_GAME_OVER(state, data) {
+            state.gameOver = data;
         },
     },
     actions: {
@@ -73,6 +77,9 @@ export default new Vuex.Store({
         updateAliveStatus({ commit }, data) {
             commit('UPDATE_PLAYER_ALIVE_STATUS', data);
             Socket.sendPlayerAliveStatus(data);
+        },
+        setGameOver({ commit }, data) {
+            commit('UPDATE_GAME_OVER', data);
         },
     },
     getters: {
