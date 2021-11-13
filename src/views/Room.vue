@@ -18,7 +18,7 @@
                     <TypingArea />
                 </div>
                 <div class="container" v-else>
-                    <h1>YOU DIED</h1>
+                    <h1>{{ gameOverText }}</h1>
                 </div>
                 <v-btn
                     class="btn"
@@ -59,6 +59,7 @@ export default {
     data: function () {
         return {
             isMapView: false,
+            gameOverText: $store.state.alive ? "YOU WON" : "YOU DIED";
         };
     },
     computed: {
