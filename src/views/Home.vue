@@ -1,68 +1,57 @@
 <template>
-  <div class="home">
-    <v-row>
-      <v-col class="input-view" align-center> <TypingArea /> </v-col>
-      <v-col>
-        <div class="map-grid-view">
-          <v-btn text outlined @click="isMapView = !isMapView">{{
-            isMapViewText
-          }}</v-btn>
-          <player-map v-if="isMapView" />
-          <player-grid v-else />
+    <div class="outer">
+        <div class="inner">
+            <v-col class="container">
+                <v-btn to="/room" class="btn" outlined>Create A Room</v-btn>
+            </v-col>
+            <v-col class="container">
+                <v-btn class="btn" outlined>Join A Room</v-btn>
+            </v-col>
         </div>
-        <div class="prize-pool mt-8">
-          <v-btn text outlined>PRIZE POOL</v-btn>
-          <prize-pool />
-        </div>
-      </v-col>
-    </v-row>
-  </div>
+    </div>
 </template>
 
 <script>
-import PlayerGrid from "../components/PlayerGrid.vue";
-import PlayerMap from "../components/PlayerMap.vue";
-import TypingArea from "../components/TypingArea.vue";
-import PrizePool from "../components/PrizePool.vue";
-
 export default {
-  name: "Home",
-  data: function () {
-    return {
-      isMapView: false,
-    };
-  },
-  components: {
-    PlayerMap,
-    PlayerGrid,
-    TypingArea,
-    PrizePool,
-  },
-  computed: {
-    isMapViewText: function () {
-      return this.isMapView ? "Grid View" : "Map View";
+    name: 'Home',
+    data: function () {
+        return {};
     },
-  },
+    components: {},
+    computed: {},
 };
 </script>
 
 <style scoped>
-.map-grid-view {
-  border: 1px solid #ccc;
-  border-radius: 9px;
-  margin: 10px;
-  margin-top: 30px;
-  vertical-align: auto;
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
+.btn {
+    width: 90%;
+    min-height: 100%;
+    font-size: 50px;
 
-.input-view {
-  margin: 10px;
-  margin-top: 30px;
-  vertical-align: auto;
+    border: 1px solid;
+    border-color: white;
+    box-shadow: 0px 0px 5px #ea4884, 0px 0px 5px #ea4884;
+    color: white;
+    filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
 }
-.prize-pool {
-  border: 1px solid #ccc;
-  border-radius: 9px;
-  margin: 10px;
+.outer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+.inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 100%;
 }
 </style>

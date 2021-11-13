@@ -1,25 +1,81 @@
 <template>
   <div class="container">
-    <v-card id="card" class="full-height ma-1" flat outlined>
+    <v-card
+      id="card"
+      class="full-height ma-1"
+      :style="redLight ? 'border-color: red' : ''"
+      flat
+      outlined
+    >
       <div class="goal-text">
         <p>
-          Love isn't always a ray of sunshine. That's what the older girls kept
-          telling her when she said she had found the perfect man. She had
-          thought this was simply bitter talk on their part since they had been
-          unable to find true love like hers. But now she had to face the fact
-          that they may have been right. Love may not always be a ray of
-          sunshine. That is unless they were referring to how the sun can burn.
+          {{ $store.state.typeText }}
         </p>
       </div>
+      <v-text-field
+        class="typing-input mb-4"
+        color="#ea4884"
+        placeholder="start typing here"
+        @input="checkIfDead"
+        :error="typedTextError"
+        :error-messages="typedTextErrorMessage"
+        v-model="typedText"
+      >
+      </v-text-field>
+      <!-- <v-btn @click="redLight = !redLight">LIGHT CHANGE</v-btn> -->
     </v-card>
-    <v-input class="typing-input"> </v-input>
   </div>
 </template>
 
 <script>
 export default {
   name: "TypingArea",
-  computed: {},
+  data: function () {
+    return {
+      typedText: "",
+      redLight: false,
+    };
+  },
+  methods: {
+    calculateScoreAndSend() {
+      if (this.typedText.length > 0 && !this.typedTextError) {
+        let score = (this.typedText.length / this.paragraphText.length) * 10;
+        console.log("score set", score);
+        this.$store.dispatch("setScore", score);
+      }
+      setTimeout(this.calculateScoreAndSend, 3000);
+    },
+    checkIfDead() {
+      if (this.redLight) {
+        alert("You are dead");
+      }
+    },
+  },
+  computed: {
+    typedTextError: function () {
+      let charCount = this.typedText.length;
+      if (charCount == 0) {
+        return false;
+      }
+      let messageToMatch = this.paragraphText.substring(0, charCount);
+      if (this.typedText === messageToMatch) {
+        return false;
+      }
+      return true;
+    },
+    typedTextErrorMessage: function () {
+      if (this.typedTextError) {
+        return "  What you have typed is incorrect, go back and fix please.";
+      }
+      return "";
+    },
+    paragraphText: function () {
+      return this.$store.state.typeText;
+    },
+  },
+  created: function () {
+    this.calculateScoreAndSend();
+  },
 };
 </script>
 
@@ -39,15 +95,26 @@ p {
   border-radius: 9px;
 }
 
-.typing-input {
-  backround-color: red;
-  height: 20px;
-  width: 500px;
-  border: 1px solid #ccc;
+.typing-input >>> input {
+  border-style: none !important;
+  height: 50px;
+  width: 450px;
+  margin-top: 10px;
+  font-size: 32px;
+  text-align: center;
 }
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+</style>
+
+<style>
+.v-messages__message {
+  font-size: 16px;
+  text-align: center;
 }
 </style>
