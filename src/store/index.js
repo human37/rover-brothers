@@ -43,6 +43,7 @@ export default new Vuex.Store({
         },
         UPDATE_RED_LIGHT(state, data) {
             state.redLight = data;
+            console.log('updated red light');
         },
         UPDATE_GAME_OVER(state, data) {
             state.gameOver = data;

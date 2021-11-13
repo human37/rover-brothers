@@ -19,6 +19,8 @@ function SocketHandler(event) {
         store.dispatch('setPlayers', msg.data);
     } else if (msg.type == 'GAME_OVER') {
         store.dispatch('setGameOver', true);
+    } else if (msg.type == 'RED_LIGHT_GREEN_LIGHT') {
+        store.dispatch('setRedLight', msg.data);
     }
 }
 
