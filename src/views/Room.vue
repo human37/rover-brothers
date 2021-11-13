@@ -8,6 +8,11 @@
             <v-spacer />
         </v-row>
         <v-row>
+            <v-col>
+                <h2 class="text-center">{{ $store.state.roomCode }}</h2>
+            </v-col>
+        </v-row>
+        <v-row>
             <v-col class="input-view ma-0 pa-0 mr-3"> <TypingArea /> </v-col>
             <v-col>
                 <div class="map-grid-view">

@@ -51,7 +51,6 @@ export default new Vuex.Store({
             commit("UPDATE_SCORE", data);
         },
         setPlayers({ commit }, data) {
-            console.log("this", data);
             commit("UPDATE_PLAYERS", data);
         },
         startGame({ commit }) {
