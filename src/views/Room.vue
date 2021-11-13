@@ -14,10 +14,15 @@
                     <v-btn text outlined @click="isMapView = !isMapView">{{
                         isMapViewText
                     }}</v-btn>
-                    <PlayerMap v-if="isMapView" />
-                    <PlayerGrid v-else />
+                    <PlayerMap
+                        v-if="isMapView"
+                        :players="$store.state.players"
+                    />
+                    <PlayerGrid v-else :players="$store.state.players" />
                 </div>
-                <v-btn @click="startGame"> Start Game </v-btn>
+                <v-btn @click="startGame" :players="$store.state.players">
+                    Start Game
+                </v-btn>
             </v-col>
         </v-row>
         <v-row>

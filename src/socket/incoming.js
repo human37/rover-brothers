@@ -17,6 +17,8 @@ function SocketHandler(event) {
         store.dispatch("populateParagraph", msg.data);
     } else if (msg.type == "BAD_CODE") {
         store.commit("SET_BAD_ROOM_CODE", true);
+    } else if (msg.type == "UPDATE_PROGRESS") {
+        store.dispatch("setPlayers", msg.data);
     }
 }
 

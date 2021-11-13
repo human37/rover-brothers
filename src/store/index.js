@@ -15,15 +15,7 @@ export default new Vuex.Store({
     },
     mutations: {
         UPDATE_PLAYERS(state, players) {
-            players.forEach((player) => {
-                let person = {
-                    name: "bob",
-                    score: 0,
-                    alive: true,
-                    id: player.id,
-                };
-                state.players.push(person);
-            });
+            state.players = players;
         },
         UPDATE_PRIZE_TOTAL(state, prizeTotal) {
             state.prizeTotal = prizeTotal;
@@ -41,12 +33,7 @@ export default new Vuex.Store({
             state.badCode = isBad;
         },
         UPDATE_PLAYER_SCORES(state, data) {
-            console.log("here", data.score);
-            console.log("id", data.id);
-            console.log("players", state.players);
-            let player = state.players.find((player) => player.id === data.id);
-            console.log("player", player);
-            player.score = data.score;
+            state.players = data;
         }
     },
     actions: {
