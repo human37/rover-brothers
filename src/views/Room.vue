@@ -65,7 +65,7 @@ export default {
         ...mapActions({ startGame: 'startGame' }),
         readyUp() {
             this.$socket.sendReady();
-            this.$store.dispatch('setGameOver', true);
+            this.$store.dispatch('setGameOver', false);
         },
     },
 };
