@@ -59,7 +59,10 @@ export default {
     data: function () {
         return {
             isMapView: false,
-            gameOverText: $store.state.alive ? "YOU WON" : "YOU DIED";
+            gameOverText:
+                this.$store.state.gameOver && this.$store.state.score === 10
+                    ? 'YOU WON'
+                    : 'YOU DIED',
         };
     },
     computed: {
