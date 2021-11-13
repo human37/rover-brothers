@@ -2,13 +2,13 @@
   <div class="home">
     <v-row>
       <v-spacer />
-      <div class="prize-pool mt-6 text-center">
+      <div class="prize-pool mt-6 mb-4 text-center">
         <prize-pool />
       </div>
       <v-spacer />
     </v-row>
     <v-row>
-      <v-col class="input-view ma-0 pa-0"> <TypingArea /> </v-col>
+      <v-col class="input-view ma-0 pa-0 mr-3"> <TypingArea /> </v-col>
       <v-col>
         <div class="map-grid-view">
           <v-btn text outlined @click="isMapView = !isMapView">{{
@@ -18,11 +18,6 @@
           <player-grid v-else />
         </div>
       </v-col>
-    </v-row>
-    <v-row>
-      <div class="container">
-        <v-btn text outlined>Submit</v-btn>
-      </div>
     </v-row>
   </div>
 </template>

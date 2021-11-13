@@ -14,7 +14,7 @@
           </div>
           <div class="shapes"><ion-icon name="square-outline"></ion-icon></div>
         </div>
-        <div class="header-text">SQUID GAMES</div>
+        <div class="header-text">SQUID GAME</div>
         <v-spacer />
         <v-btn class="ma-4" @click="$router.push('/about')" text outlined>
           About
@@ -33,37 +33,34 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from "vuex";
 
 export default {
-  name: 'App',
+  name: "App",
   data: () => ({
     tab: null,
   }),
-  components: {
-  },
-  computed: {
-  },
+  components: {},
+  computed: {},
   methods: {
     ...mapActions({
-      populateStoreData: 'populateStoreData'
+      populateStoreData: "populateStoreData",
     }),
-    connectToServer() { 
-        this.socket = new WebSocket("ws://localhost:3000");
-        this.socket.onmessage = (event) => {
-            this.receivedUpdates(event);
-        }
+    connectToServer() {
+      this.socket = new WebSocket("ws://localhost:3000");
+      this.socket.onmessage = (event) => {
+        this.receivedUpdates(event);
+      };
     },
     receivedUpdates(event) {
       this.populateStoreData(JSON.parse(event.data));
-    }
+    },
   },
   created() {
-    this.connectToServer()
-  }
+    this.connectToServer();
+  },
 };
 </script>
-
 
 <style lang="scss">
 #app {

@@ -3,17 +3,20 @@
     <v-card id="card" class="full-height ma-1" flat outlined>
       <div class="goal-text">
         <p>
-          {{ $store.state.typeText }}
+          <!-- {{ $store.state.typeText }} -->
+          {{ paragraphText }}
         </p>
       </div>
+      <v-text-field
+        class="typing-input"
+        color="#ea4884"
+        placeholder="start typing here"
+        :error="typedTextError"
+        :error-messages="typedTextErrorMessage"
+        v-model="typedText"
+      >
+      </v-text-field>
     </v-card>
-    <v-text-field
-      class="typing-input"
-      color="#ea4884"
-      :error="typedTextError"
-      v-model="typedText"
-    >
-    </v-text-field>
   </div>
 </template>
 
@@ -34,12 +37,16 @@ export default {
         return false;
       }
       let messageToMatch = this.paragraphText.substring(0, charCount);
-      console.log(messageToMatch);
-      console.log(this.typedText);
       if (this.typedText === messageToMatch) {
         return false;
       }
       return true;
+    },
+    typedTextErrorMessage: function () {
+      if (this.typedTextError) {
+        return "  What you have typed is incorrect, go back and fix please.";
+      }
+      return "";
     },
   },
 };
@@ -64,7 +71,7 @@ p {
 .typing-input >>> input {
   border-style: none !important;
   height: 50px;
-  width: 75%;
+  width: 450px;
   margin-top: 10px;
   font-size: 32px;
   text-align: center;
@@ -73,5 +80,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 </style>
