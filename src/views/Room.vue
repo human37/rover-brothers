@@ -17,7 +17,7 @@
         <v-row>
             <v-col class="input-view ma-0 pa-0 mr-3">
                 <TypingArea />
-                <v-btn class="btn" v-if="!ready" @click="readyUp"
+                <v-btn class="btn" v-if="!ready" @click="readyUp" outlined
                     >Ready Up</v-btn
                 >
                 <div v-else>Ready!</div>
