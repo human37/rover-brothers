@@ -20,6 +20,10 @@
                 <v-btn @click="startGame"> Start Game </v-btn>
             </v-col>
         </v-row>
+        <v-row>
+            <v-btn v-if="!ready" @click="readyUp">Ready Up</v-btn>
+            <div v-else>Ready!</div>
+        </v-row>
     </div>
 </template>
 
@@ -40,6 +44,7 @@ export default {
     },
     data: function () {
         return {
+            ready: false,
             isMapView: false,
         };
     },
@@ -52,6 +57,10 @@ export default {
         ...mapActions({
             startGame: 'startGame',
         }),
+        readyUp() {
+            this.$socket.sendReady();
+            this.ready = true;
+        },
     },
 };
 </script>

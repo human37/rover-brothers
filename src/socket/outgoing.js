@@ -21,6 +21,11 @@ const Socket = {
             type: "JOIN_ROOM",
             data: code
         });
+    },
+    sendReady: () => {
+        SendData({
+            type: "READY_UP"
+        });
     }
 };
 
