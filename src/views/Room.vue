@@ -97,6 +97,7 @@ export default {
 .room-code {
     display: inline;
     color: white;
+    padding-left: 5px;
 }
 .btn {
     width: 25%;
