@@ -3,7 +3,7 @@
         <v-row>
             <v-col>
                 <div class="room-code-area">
-                    ROOM CODE:
+                    <div>ROOM CODE:</div>
                     <div class="room-code">{{ $store.state.roomCode }}</div>
                 </div>
             </v-col>
@@ -12,14 +12,11 @@
                     <PrizePool />
                 </div>
             </v-col>
-            <v-col></v-col>
         </v-row>
         <v-row>
             <v-col class="input-view ma-0 pa-0 mr-3">
                 <TypingArea />
-                <v-btn class="btn"
-                v-if="!ready" 
-                @click="readyUp" outlined
+                <v-btn class="btn" v-if="!ready" @click="readyUp" outlined
                     >Ready Up</v-btn
                 >
                 <div v-else>Ready!</div>
@@ -97,9 +94,11 @@ export default {
 }
 
 .room-code-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 24px;
     margin-top: 50px;
-    margin-left: 20px;
 }
 .room-code {
     display: inline;
