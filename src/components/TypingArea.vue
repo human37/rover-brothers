@@ -3,7 +3,11 @@
         <v-card
             id="card"
             class="full-height ma-1"
-            :style="$store.getters.redLight ? 'border-color: red' : ''"
+            :style="
+                $store.getters.redLight
+                    ? 'border-color: red'
+                    : 'border-color: green'
+            "
             flat
             outlined
         >
