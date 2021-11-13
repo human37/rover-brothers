@@ -5,13 +5,13 @@
         <v-spacer />
         <div class="logo">
             <div class="shapes neon-text">
-                <v-icon size="50">mdi-circle-outline</v-icon>
+                <v-icon size="40">mdi-circle-outline</v-icon>
             </div>
             <div class="shapes neon-text">
-                <v-icon size="50">mdi-square-rounded-outline</v-icon>
+                <v-icon size="40">mdi-square-rounded-outline</v-icon>
             </div>
             <div class="shapes neon-text">
-                <v-icon size="50">mdi-triangle-outline</v-icon>
+                <v-icon size="40">mdi-triangle-outline</v-icon>
             </div>
         </div>
         <div class="header-text neon-text">SQUID RACER</div>
@@ -41,8 +41,7 @@ export default {
 }
 
 .header-text {
-    font-size: 40px;
-    padding-left: 40px;
+    font-size: 45px;
 }
 .v-icon {
     font-size: 40px;
