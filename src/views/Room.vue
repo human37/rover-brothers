@@ -111,5 +111,6 @@ export default {
 .players-grid {
     position: absolute;
     bottom: 10px;
+    filter: drop-shadow(0 0 2px #ea4884) drop-shadow(0 0 2px #ea4884);
 }
 </style>
