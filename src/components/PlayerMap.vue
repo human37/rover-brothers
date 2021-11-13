@@ -12,7 +12,10 @@
                 :disabled="!player.alive"
                 :style="playerMapDistance[index]"
                 :color="player.alive ? '#ea4884' : ''"
-                ><v-icon>mdi-account</v-icon>{{ player.name }}</v-chip
+                ><v-icon class="neon-text pr-2">{{
+                    getIcon(player.shape)
+                }}</v-icon
+                >{{ player.number }}</v-chip
             >
         </span>
         <div
@@ -40,6 +43,17 @@ export default {
             return this.players.map((player) => {
                 return 'bottom:' + player.score * 50 + 'px';
             });
+        },
+    },
+    methods: {
+        getIcon(shape) {
+            if (shape === 'square') {
+                return 'mdi-square-rounded-outline';
+            } else if (shape === 'triangle') {
+                return 'mdi-triangle-outline';
+            } else {
+                return 'mdi-circle-outline';
+            }
         },
     },
 };
