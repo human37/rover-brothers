@@ -9,8 +9,7 @@
     >
       <div class="goal-text">
         <p>
-          <!-- {{ $store.state.typeText }} -->
-          {{ paragraphText }}
+          {{ $store.state.typeText }}
         </p>
       </div>
       <v-text-field

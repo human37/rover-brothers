@@ -44,20 +44,7 @@ export default {
   computed: {},
   methods: {
     ...mapActions({
-      populateStoreData: "populateStoreData",
     }),
-    connectToServer() {
-      this.socket = new WebSocket("ws://localhost:3000");
-      this.socket.onmessage = (event) => {
-        this.receivedUpdates(event);
-      };
-    },
-    receivedUpdates(event) {
-      this.populateStoreData(JSON.parse(event.data));
-    },
-  },
-  created() {
-    this.connectToServer();
   },
 };
 </script>
