@@ -30,6 +30,16 @@ export default {
       typedText: "",
     };
   },
+  methods: {
+    calculateScoreAndSend() {
+      if (this.typedText.length > 0 && !this.typedTextError) {
+        let score = (this.typedText.length / this.paragraphText.length) * 10;
+        console.log("score set", score);
+        this.$store.dispatch("setScore", score);
+      }
+      setTimeout(this.calculateScoreAndSend, 3000);
+    },
+  },
   computed: {
     typedTextError: function () {
       let charCount = this.typedText.length;
@@ -48,6 +58,9 @@ export default {
       }
       return "";
     },
+  },
+  created: function () {
+    this.calculateScoreAndSend();
   },
 };
 </script>
