@@ -1,3 +1,3 @@
-const socket = new WebSocket("ws://localhost:3000");
+const socket = new WebSocket("ws://squid-racer.herokuapp.com");
 
 export default socket;
