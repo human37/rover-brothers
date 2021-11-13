@@ -17,6 +17,9 @@
           <player-map v-if="isMapView" />
           <player-grid v-else />
         </div>
+        <v-btn @click="startGame">
+          Start Game
+        </v-btn>
       </v-col>
     </v-row>
   </div>
@@ -27,6 +30,7 @@ import PlayerGrid from "../components/PlayerGrid.vue";
 import PlayerMap from "../components/PlayerMap.vue";
 import TypingArea from "../components/TypingArea.vue";
 import PrizePool from "../components/PrizePool.vue";
+import {mapActions} from "vuex";
 
 export default {
   name: "Home",
@@ -45,6 +49,11 @@ export default {
     isMapViewText: function () {
       return this.isMapView ? "Grid View" : "Map View";
     },
+  },
+  methods: {
+    ...mapActions({
+      startGame: "startGame",
+    }),
   },
 };
 </script>

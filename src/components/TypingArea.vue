@@ -43,7 +43,7 @@ export default {
         console.log("score set", score);
         this.$store.dispatch("setScore", score);
       }
-      setTimeout(this.calculateScoreAndSend, 3000);
+      setTimeout(this.calculateScoreAndSend, 500);
     },
     checkIfDead() {
       if (this.redLight) {
