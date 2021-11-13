@@ -88,7 +88,6 @@ export default {
 
 .typingInput >>> input {
     text-align: center;
-    color: white;
     font-size: 32px;
 }
 </style>
